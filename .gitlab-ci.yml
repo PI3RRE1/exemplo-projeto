@@ -10,4 +10,6 @@ build-job:
 test-job:
   stage: test
   script:
-    - echo "Executando testes..."
+    - apt-get update && apt-get install -y python3 python3-pip  # Instala Python e pip
+    - pip3 install -r requirements.txt  # Instala dependências, se houver
+    - python3 -m unittest test_example.py  # Executa os testes
